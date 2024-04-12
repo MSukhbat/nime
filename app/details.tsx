@@ -58,11 +58,6 @@ export default function TabOneScreen() {
               justifyContent: "space-between",
             }}
           >
-            <View>
-              <Text>
-                <Image source={require("@/icons/logo.png")} />
-              </Text>
-            </View>
             <View
               style={{
                 width: 90,
@@ -72,9 +67,6 @@ export default function TabOneScreen() {
                 height: 100,
               }}
             >
-              <Link href="/search">
-                <Search />
-              </Link>
               <Link href="/notifications">
                 <Notification />
               </Link>
@@ -101,69 +93,19 @@ export default function TabOneScreen() {
             <Text
               style={{ fontFamily: "Urbanist", fontSize: 20, fontWeight: 800 }}
             >
-              Top Hits Anime
+              Title
             </Text>
-            <Link style={{ color: "#06C149" }} href="/tophits">
-              see all
-            </Link>
+            <Text>Icons</Text>
+          </View>
+          <View>
+            <Text>details</Text>
+          </View>
+          <View>
+            <Text>Episodes</Text>
+            <Text>episodes here</Text>
           </View>
         </View>
       </View>
-      <FlatList
-        data={data.data}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        style={{
-          flexDirection: "row",
-          display: "flex",
-          gap: 10,
-          height: 200,
-          paddingLeft: 15,
-        }}
-        renderItem={({ item }) => (
-          <View style={styles.column}>
-            <View key={item.id} style={styles.itng}>
-              <Link href={`/anime/${item.id}`}>
-                <View style={{ position: "relative" }}>
-                  <Image
-                    width={140}
-                    height={200}
-                    style={{
-                      borderTopLeftRadius: 20,
-                      borderTopRightRadius: 20,
-                      borderBottomRightRadius: 20,
-                      borderBottomLeftRadius: 20,
-                    }}
-                    source={{ uri: item.attributes.posterImage.original }}
-                  />
-                  <View
-                    style={{
-                      borderWidth: 0,
-                      borderBlockColor: "none",
-                      backgroundColor: "#06C149",
-                      borderStyle: "solid",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      position: "absolute",
-                      top: 8,
-                      left: 16,
-                      borderTopLeftRadius: 10,
-                      borderTopRightRadius: 10,
-                      borderBottomRightRadius: 10,
-                      borderBottomLeftRadius: 10,
-                    }}
-                  >
-                    <Text style={{ color: "#FFF" }}>
-                      {Math.floor(item.attributes.averageRating)}
-                    </Text>
-                  </View>
-                </View>
-              </Link>
-            </View>
-          </View>
-        )}
-      />
     </ScrollView>
   );
 }
